@@ -12,28 +12,12 @@ class NotepadApp:
 #Ali Andrew
     def create_menu(self):
         menubar = tk.Menu(self.root)
-
         file_menu = tk.Menu(menubar, tearoff=0)
-        file_menu.add_command(label="New", command=self.new_file)
-        file_menu.add_command(label="Open", command=self.open_file)
-        file_menu.add_command(label="Save", command=self.save_file)
-        file_menu.add_command(label="Save As", command=self.save_as_file)
-        file_menu.add_separator()
-        file_menu.add_command(label="Exit", command=self.root.destroy)
-
+        # ... (File menu options)
         edit_menu = tk.Menu(menubar, tearoff=0)
-        edit_menu.add_command(label="Undo", command=self.text_widget.edit_undo)
-        edit_menu.add_command(label="Redo", command=self.text_widget.edit_redo)
-        edit_menu.add_separator()
-        edit_menu.add_command(label="Cut", command=self.cut_text)
-        edit_menu.add_command(label="Copy", command=self.copy_text)
-        edit_menu.add_command(label="Paste", command=self.paste_text)
-        edit_menu.add_separator()
-        edit_menu.add_command(label="Select All", command=self.select_all)
-
+        # ... (Edit menu options)
         menubar.add_cascade(label="File", menu=file_menu)
         menubar.add_cascade(label="Edit", menu=edit_menu)
-
         self.root.config(menu=menubar)
 
 #Alpha Jesse 
