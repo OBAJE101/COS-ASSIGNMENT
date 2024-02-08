@@ -33,15 +33,15 @@ class NotepadApp:
 
     # Alpha Jesse
         def shortcuts(self, event):
-        # Ctrl+S
-        if (event.keysym, event.state) == ('s', 4):
-            self.save_file()
-        # Ctrl+N
-        if (event.keysym, event.state) == ('n', 4):
-            self.new_file()
-        # Ctrl+O
-        if (event.keysym, event.state) == ('o', 4):
-            self.open_file()
+            # Ctrl+S
+            if (event.keysym, event.state) == ('s', 4):
+                self.save_file()
+            # Ctrl+N
+            if (event.keysym, event.state) == ('n', 4):
+                self.new_file()
+            # Ctrl+O
+            if (event.keysym, event.state) == ('o', 4):
+                self.open_file()
     
     def new_file(self):
         self.text_widget.delete(1.0, tk.END)
