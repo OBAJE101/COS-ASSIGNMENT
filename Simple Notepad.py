@@ -16,13 +16,33 @@ class NotepadApp:
         menubar = tk.Menu(self.root)
         file_menu = tk.Menu(menubar, tearoff=0)
         # ... (File menu options)
+        file_menu.add_command(label='Save', command=self.save_file)
+        file_menu.add_command(label='Save as', command=self.save_as_file)
+        file_menu.add_command(label='New File', command=self.new_file)
+        file_menu.add_command(label='Open File', command=self.open_file)
         edit_menu = tk.Menu(menubar, tearoff=0)
         # ... (Edit menu options)
+        edit_menu.add_command(label='Copy Text', command=self.copy_text)
+        edit_menu.add_command(label='Cut Text', command=self.cut_text)
+        edit_menu.add_command(label='Select All', command=self.select_all)
+        edit_menu.add_command(label='Paste Text', command=self.paste_text)
+        
         menubar.add_cascade(label="File", menu=file_menu)
         menubar.add_cascade(label="Edit", menu=edit_menu)
         self.root.config(menu=menubar)
 
     # Alpha Jesse
+        def shortcuts(self, event):
+        # Ctrl+S
+        if (event.keysym, event.state) == ('s', 4):
+            self.save_file()
+        # Ctrl+N
+        if (event.keysym, event.state) == ('n', 4):
+            self.new_file()
+        # Ctrl+O
+        if (event.keysym, event.state) == ('o', 4):
+            self.open_file()
+    
     def new_file(self):
         self.text_widget.delete(1.0, tk.END)
 
