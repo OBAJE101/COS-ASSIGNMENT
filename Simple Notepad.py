@@ -1,6 +1,7 @@
-#Egena Sylvester
+# Egena Sylvester
 import tkinter as tk
 from tkinter import filedialog
+
 
 class NotepadApp:
     def __init__(self, root):
@@ -9,7 +10,8 @@ class NotepadApp:
         self.text_widget = tk.Text(self.root, wrap='word', undo=True)
         self.text_widget.pack(expand=True, fill='both')
         self.create_menu()
-#Ali Andrew
+
+    # Ali Andrew
     def create_menu(self):
         menubar = tk.Menu(self.root)
         file_menu = tk.Menu(menubar, tearoff=0)
@@ -20,12 +22,13 @@ class NotepadApp:
         menubar.add_cascade(label="Edit", menu=edit_menu)
         self.root.config(menu=menubar)
 
-#Alpha Jesse 
+    # Alpha Jesse
     def new_file(self):
         self.text_widget.delete(1.0, tk.END)
 
     def open_file(self):
-        file_path = filedialog.askopenfilename(defaultextension=".txt", filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
+        file_path = filedialog.askopenfilename(defaultextension=".txt",
+                                               filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
         if file_path:
             with open(file_path, 'r') as file:
                 content = file.read()
@@ -42,7 +45,8 @@ class NotepadApp:
             self.save_as_file()
 
     def save_as_file(self):
-        file_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
+        file_path = filedialog.asksaveasfilename(defaultextension=".txt",
+                                                 filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
         if file_path:
             content = self.text_widget.get(1.0, tk.END)
             with open(file_path, 'w') as file:
@@ -50,7 +54,7 @@ class NotepadApp:
             self.file_path = file_path
             self.root.title(f"Simple Notepad - {file_path}")
 
-#Kayode Miracle
+    # Kayode Miracle
     def cut_text(self):
         self.text_widget.event_generate("<<Cut>>")
 
@@ -63,7 +67,8 @@ class NotepadApp:
     def select_all(self):
         self.text_widget.tag_add(tk.SEL, "1.0", tk.END)
 
-#Onyukwu Giddel
+
+# Onyukwu Giddel
 if __name__ == "__main__":
     root = tk.Tk()
     app = NotepadApp(root)
